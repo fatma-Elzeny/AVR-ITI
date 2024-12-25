@@ -3,8 +3,8 @@
  * Created: 12/24/2024 8:06:27 PM
  *  Author: Fatma Yosry Elzeny
  */ 
-#include "MDIO_CFG.h"
-#include "MDIO.h"
+#include "../inc/MDIO_CFG.h"
+#include "../inc/MDIO.h"
 
 // array to return the configuration of the pins and set it during run time 
 

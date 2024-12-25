@@ -1,5 +1,5 @@
 # set minimum required version of cmake to avoid errors
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.31)
 
 # to make sure CMake knows that the target will not be executed on this machine
 set(CMAKE_SYSTEM_NAME Generic)
@@ -37,27 +37,23 @@ add_compile_options(-Wall -Os -g -mmcu=${MCU})
 add_link_options(-mmcu=${MCU} -Wl,--gc-sections)
 
 # include subdirectories for libraries' CMakeLists.txt
-#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../ITI_ATMEGA32_Driver_Lib/COTS/MCAL/MDIO)
+#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../AVR-ITI/COTS/MCAL/MDIO)
 add_subdirectory(
     ${CMAKE_CURRENT_SOURCE_DIR}/../COTS/MCAL/MDIO
     ${CMAKE_BINARY_DIR}/MDIO
 )
 
-add_subdirectory(
-	${CMAKE_CURRENT_SOURCE_DIR}/../COTS/MCAL/MPORT
-    ${CMAKE_BINARY_DIR}/MPORT
-)
 
 
 # include directories for relevant .h files (this line should be obselete)
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/LIB/MCAL/MDIO/include/ ${CMAKE_CURRENT_SOURCE_DIR}/LIB/STD_LIB/include/)
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/LIB/MCAL/MDIO/inc/ ${CMAKE_CURRENT_SOURCE_DIR}/LIB/STD_LIB/inc/)
 
 # setting avrdude flash flags
 set(FLASH_FLAGS "-R .eeprom -R .lock -R .signature")
 
 # compiling and getting .elf file
 add_executable(${PROJECT_NAME}.elf ${AVR_PROJECT_SRC_FILES} ${AVR_PROJECT_INC_FILES}) # main target
-target_link_libraries(${PROJECT_NAME}.elf PRIVATE MDIO MPORT)
+target_link_libraries(${PROJECT_NAME}.elf PRIVATE MDIO )
 
 # adding a custom target/build rule for creating .hex file
 add_custom_target(flash 

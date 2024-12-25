@@ -5,9 +5,9 @@
  *  Author: Fatma Yosry Mohamed
  */
 
-#include "../../BIT_MATH.h"
-#include "MDIO.h"
-#include "MDIO_CFG.h"
+#include "../../../STD_LIB/inc/BIT_MATH.h"
+#include "../inc/MDIO_CFG.h"
+#include "../inc/MDIO.h"
 #define NULL 0
 
 typedef unsigned char u8;

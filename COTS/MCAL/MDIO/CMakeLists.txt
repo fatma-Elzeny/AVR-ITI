@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.31)
 project(MDIO C) # ASM CXX
 
 #set compiler
-find_program(CMAKE_C_COMPILER NAME avr-gcc PATH "/usr/bin/")
-
+#find_program(CMAKE_C_COMPILER NAME avr-gcc PATH "/usr/bin/")
+set(CMAKE_C_COMPILER "avr-gcc")
 # collect .c files
 file(GLOB ${PROJECT_NAME}_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c)
 

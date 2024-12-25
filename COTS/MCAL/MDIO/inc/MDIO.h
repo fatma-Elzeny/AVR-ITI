@@ -8,6 +8,8 @@
 #ifndef DIO_H_
 #define DIO_H_
 
+
+typedef unsigned char u8;
 typedef enum
 {
 
@@ -17,6 +19,7 @@ typedef enum
     MDIO_enuINVALIDPORT,
     MDIO_enuINVALIDCONFIG,
     MDIO_enuINVALIDSTATUS,
+    MDIO_NULL_PTR
 
 } MDIO_enuErrorStatus_t;
 
@@ -57,7 +60,7 @@ typedef enum
 {
     MDIO_enuOUTPUT,
     MDIO_enuINPUTPULLUP,
-    MDIO_enuINPUTPULLDOWN
+    MDIO_enuINPUT
 
 } MDIO_enuConfiguration_t;
 
