@@ -4,12 +4,19 @@ cmake_minimum_required(VERSION 3.31)
 # define project name + used language
 project(MDIO C) # ASM CXX
 
+#set compiler
+find_program(CMAKE_C_COMPILER NAME avr-gcc PATH "/usr/bin/")
+
 # collect .c files
 file(GLOB ${PROJECT_NAME}_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c)
 
+#for debugging 
+ message(STATUS "${PROJECT_NAME}_SRC_FILES")
+ message(STATUS "${CMAKE_C_COMPILER}")
+ 
 # set include paths 
 set(${PROJECT_NAME}_LIB_INC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
-set(STDLIB_INC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../../STD_LIB/)
+set(STDLIB_INC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../../STD_LIB/inc)
 
 # collect .h files
 file(GLOB ${PROJECT_NAME}LIB_INC_FILES ${MDIO_LIB_INC_PATH}*.h)
